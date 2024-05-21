@@ -10,7 +10,7 @@ class Connexion{
         try{
             $connection = new PDO("mysql:host=$servername; dbname=$database", $username, $password);
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Connexion reussi";
+
         }catch(PDOException $e){
             echo "Echec de connexion : ". $e->getMessage();
         }

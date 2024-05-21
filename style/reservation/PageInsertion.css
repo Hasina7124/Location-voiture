@@ -1,0 +1,32 @@
+/* Pour la gallerie */
+.gallerie{
+    display: flex;
+    overflow-x: scroll;
+    text-align: center;
+}
+.gallerie img{
+    width: 500px;
+    height: 400px;
+    margin: 5px;
+}
+.gallerie .sousgallerie{
+    border: 1px black solid;
+}
+
+/* Pour les titres */
+.title{
+    text-align: center;
+}
+
+/* Pour le choix de clients*/
+.client{
+    display: flex;
+    justify-content: space-around;
+}
+.client_element{
+    text-align: center;
+}
+.client_ancien{
+    display: flex;
+    justify-content: center;
+}
