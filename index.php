@@ -15,5 +15,6 @@
         <div><button type= "submit" name= "login">Envoyer</button></div>
     </form>
     <p>Pas de compte?<a href="./entity/administration/PageInsertion.php">Creer un</a></p>
+    <p>Bonjour</p>
 </body>
 </html>
