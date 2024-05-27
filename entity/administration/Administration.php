@@ -1,19 +1,22 @@
 <?php
 include_once '../Personne.php';
-class Administration_ extends Personne{
+
+class Administration extends Personne{
     public $mdp;
     public $confmdp;
-    function __construct($email,$nom,$statut,$sexe,$mdp,$confmdp){
-        $this->email = $email;
-        $this->nom = $nom;
-        $this->sexe = $sexe;
-        $this->statut = $statut;
+
+    public function set_mdp($mdp){
         $this->mdp = $mdp;
+    }
+    public function set_confmdp($confmdp){
         $this->confmdp = $confmdp;
     }
 
-    function AddNewAdministration($connexion){
-        if($this->mdp = $this->confmdp){
+    function AddNewAdministration(){
+        if($this->mdp === $this->confmdp){
+            $conn = new Connexion();
+            $connexion = $conn->getconnexion();
+            
             $sql = "INSERT INTO administration(email,nom,statut,sexe,mdp) VALUES(:email, :nom, :statut, :sexe, :mdp);";
             $statement = $connexion->prepare($sql);
             $statement->bindParam(':email', $this->email);
@@ -21,15 +24,18 @@ class Administration_ extends Personne{
             $statement->bindParam(':statut', $this->statut);
             $statement->bindParam(':sexe', $this->sexe);
             $statement->bindParam(':mdp', $this->mdp);
-            if($statement->execute()){
-                header("Location:./PageInsertion.php?execute=ok");
-            }
-            else{
-                header("Location:./PageInsertion.php?execute=error");
+            try{
+                $statement->execute();
+                header("Location:../Acceuil.php");
+            }catch(PDOException $e){
+                echo "Erreur: "+$e->getMessage();
+            }finally{
+                $connexion = null;
             }
         }
         else{
-
+            header("Location:./PageInsertion.php?execute=errinsertion");
         }
     }
 }
+

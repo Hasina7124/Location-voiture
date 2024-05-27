@@ -28,5 +28,12 @@
         <input type="password" name="confmdp">
         <div><button type="submit" name="insertion">Envoyer</button></div>
     </form>
+    <p>
+        <?php 
+        if(isset($_GET["execute"]) && $_GET["execute"] == "errinsertion"){
+            echo "Mots de passe incorrect";
+        }
+        ?>
+    </p>
 </body>
 </html>
