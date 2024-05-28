@@ -34,7 +34,7 @@ class Administration extends Personne{
             }
         }
         else{
-            header("Location:./PageInsertion.php?execute=errinsertion");
+            header("Location:./PageInsertion.php");
         }
     }
 }

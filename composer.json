@@ -1,11 +1,9 @@
 {
-    "name": "raharison/location",
-    "description": "Un projet de gestion de location de voitures",
+    "name": "raharison/location_voitures",
     "type": "project",
-    "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Raharison\\Location\\": "src/"
+            "Raharison\\LocationVoitures\\": "src/"
         }
     },
     "authors": [
